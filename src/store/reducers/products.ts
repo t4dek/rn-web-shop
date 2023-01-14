@@ -1,8 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-type Products = {
-  list: Record<string, string>[]
-}
+export type Product = {
+  id: string;
+  price: number;
+  name: string;
+  image: string;
+};
+
+export type Products = {
+  list: Product[];
+};
 
 const initialState: Products = {
   list: [],
@@ -12,10 +19,7 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setProductsList: (
-      state,
-      action: PayloadAction<Record<string, string>[]>,
-    ) => {
+    setProductsList: (state, action: PayloadAction<Product[]>) => {
       state.list = action.payload;
     },
   },

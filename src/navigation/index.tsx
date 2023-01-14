@@ -6,8 +6,6 @@ import {ROUTE_NAMES} from '../constants/routeNames';
 const MainNavigator = createNativeStackNavigator();
 
 export const MainNavigation = () => {
-  console.log('Navig');
-
   return (
     <MainNavigator.Navigator>
       <MainNavigator.Screen name={ROUTE_NAMES.HOME} component={HomeScreen} />
