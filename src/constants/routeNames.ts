@@ -1,3 +1,4 @@
 export enum ROUTE_NAMES {
-  HOME = 'HomeScreen',
+  PRODUCTS = 'ProductsScreen',
+  PRODUCT_DETAILS = 'ProductDetailsScreen',
 }

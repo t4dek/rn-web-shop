@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen} from '../screens';
+import {ProductDetails, ProductsScreen} from '../screens';
 import {ROUTE_NAMES} from '../constants/routeNames';
 
 const MainNavigator = createNativeStackNavigator();
@@ -8,7 +8,14 @@ const MainNavigator = createNativeStackNavigator();
 export const MainNavigation = () => {
   return (
     <MainNavigator.Navigator>
-      <MainNavigator.Screen name={ROUTE_NAMES.HOME} component={HomeScreen} />
+      <MainNavigator.Screen
+        name={ROUTE_NAMES.PRODUCTS}
+        component={ProductsScreen}
+      />
+      <MainNavigator.Screen
+        name={ROUTE_NAMES.PRODUCT_DETAILS}
+        component={ProductDetails}
+      />
     </MainNavigator.Navigator>
   );
 };
