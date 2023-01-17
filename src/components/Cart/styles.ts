@@ -4,6 +4,7 @@ export default StyleSheet.create({
   modal: {
     flex: 1,
     marginTop: 180,
+    flexGrow: 1,
   },
   modalContentContainer: {
     backgroundColor: 'white',
@@ -11,13 +12,14 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     paddingHorizontal: 15,
-    paddingVertical: 20,
+    paddingVertical: 50,
   },
   container: {
     flex: 1,
   },
   itemContainer: {
-    flex: 1,
+    flex: 0,
+    height: 170,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
