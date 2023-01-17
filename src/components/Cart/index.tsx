@@ -66,7 +66,7 @@ const Cart: React.FC<CartProps> = ({
         <View style={styles.container}>
           <Text style={styles.category}>{product.category}</Text>
           <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.price}>{product.price}</Text>
+          <Text style={styles.price}>{`$${product.price}`}</Text>
         </View>
       </View>
     );
@@ -84,7 +84,11 @@ const Cart: React.FC<CartProps> = ({
       }>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.modalContentContainer}>
-        {Object.keys(normalizedProducts).map(renderItem)}
+          {products.length ? (
+            Object.keys(normalizedProducts).map(renderItem)
+          ) : (
+            <Text>Cart is empty</Text>
+          )}
         </View>
       </ScrollView>
     </Modal>

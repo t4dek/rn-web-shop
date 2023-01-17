@@ -43,4 +43,16 @@ export default StyleSheet.create({
     maxHeight: 100,
   },
   qty: {flex: 1, alignItems: 'center'},
+  category: {
+    fontSize: 12,
+    fontStyle: 'italic',
+    fontWeight: 'bold'
+  },
+  title: {
+    marginVertical: 5,
+  },
+  price: {
+    fontWeight: 'bold',
+    fontSize: 15,
+  }
 });
