@@ -78,11 +78,9 @@ const Products = () => {
   );
 
   return (
-    <SafeAreaView style={styles.containter}>
-      <ScrollView contentContainerStyle={styles.scrollContentContainer}>
-        {Object.keys(list).map(renderProduct)}
-      </ScrollView>
-    </SafeAreaView>
+    <ScrollView contentContainerStyle={styles.scrollContentContainer}>
+      {Object.keys(list).map(renderProduct)}
+    </ScrollView>
   );
 };
 

@@ -4,7 +4,7 @@ const horizontalMargin = 10;
 
 export default StyleSheet.create({
   containter: {
-    flex: 1,
+    flex: 0,
   },
   scrollContentContainer: {
     flexGrow: 1,

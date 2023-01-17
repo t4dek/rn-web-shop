@@ -13,6 +13,7 @@ import {
   Product,
   removeProductFromCart,
 } from './src/store/reducers/products';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -55,7 +56,9 @@ const App = () => {
 const AppWrapper = () => {
   return (
     <Provider store={store}>
-      <App />
+      <SafeAreaProvider>
+        <App />
+      </SafeAreaProvider>
     </Provider>
   );
 };
