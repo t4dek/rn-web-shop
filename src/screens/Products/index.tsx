@@ -59,7 +59,9 @@ const Products = () => {
             style={styles.image}
             source={{uri: product.image}}
           />
-          <Text style={styles.title}>{product.title}</Text>
+          <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>
+            {product.title}
+          </Text>
           <Pressable
             onPress={addToCart(product)}
             style={({pressed}) => ({
@@ -67,6 +69,7 @@ const Products = () => {
               opacity: pressed ? 0.5 : 1,
             })}>
             <Text style={styles.cartButtonText}>Add to cart</Text>
+            <Text style={styles.price}>{`$${product.price}`}</Text>
           </Pressable>
         </Pressable>
       );
