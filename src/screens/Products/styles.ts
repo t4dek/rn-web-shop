@@ -1,5 +1,7 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
+const horizontalMargin = 10;
+
 export default StyleSheet.create({
   containter: {
     flex: 1,
@@ -8,11 +10,32 @@ export default StyleSheet.create({
     flexGrow: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    paddingVertical: 30,
   },
   productContainer: {
-    flexBasis: Dimensions.get('window').width / 2,
+    flexBasis: Dimensions.get('window').width / 2 - horizontalMargin * 2,
+    marginBottom: 50,
+    marginHorizontal: 10,
+    padding: 5,
   },
   image: {
+    flex: 1,
+    justifyContent: 'flex-end',
     height: Dimensions.get('window').width / 2,
   },
+  cartButton: {
+    backgroundColor: 'black',
+    width: 100,
+    alignSelf: 'center',
+  },
+  cartButtonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginVertical: 5,
+  },
+  title: {
+    marginVertical: 10,
+    textAlign: 'center',
+  }
 });
