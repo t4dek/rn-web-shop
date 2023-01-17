@@ -25,4 +25,19 @@ export default StyleSheet.create({
   description: {
     paddingHorizontal: 15,
   },
+  cartButton: {
+    backgroundColor: 'black',
+    width: 100,
+    height: 40,
+    alignSelf: 'center',
+    borderRadius: 10,
+    flex: 0,
+    justifyContent: 'center',
+    marginVertical: 7,
+  },
+  cartButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
 });

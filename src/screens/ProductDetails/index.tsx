@@ -1,18 +1,9 @@
-import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useEffect} from 'react';
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
-import {ROUTE_NAMES} from '../../constants/routeNames';
+import {ImageBackground, Pressable, Text, View} from 'react-native';
 
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getProduct} from '../../store/asyncActions/products';
+import {addProductToCart, Product} from '../../store/reducers/products';
 
 import styles from './styles';
 
@@ -22,6 +13,10 @@ const ProductDetails = ({route}) => {
 
   const id = route.params?.id;
   const product = products[id] || {};
+
+  const handleAddToCart = useCallback((item: Product) => {
+    return () => dispatch(addProductToCart(item));
+  }, []);
 
   useEffect(() => {
     dispatch(getProduct({id}));
@@ -36,6 +31,14 @@ const ProductDetails = ({route}) => {
       />
       <Text style={styles.title}>{product.title}</Text>
       <Text style={styles.price}>{`$${product.price}`}</Text>
+      <Pressable
+        style={({pressed}) => ({
+          opacity: pressed ? 0.5 : 1,
+          ...styles.cartButton,
+        })}
+        onPress={handleAddToCart(product)}>
+        <Text style={styles.cartButtonText}>Add to cart</Text>
+      </Pressable>
       <Text style={styles.description}>{product.description}</Text>
     </View>
   );

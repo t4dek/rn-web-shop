@@ -32,6 +32,7 @@ const ActionBar: React.FC<ActionBarProps> = ({onCartPress, cartSize}) => {
       <View style={styles.container}>
         {tabs.map(tab => (
           <Pressable
+            key={tab.icon}
             onPress={tab.onPress}
             style={({pressed}) => ({opacity: pressed ? 0.5 : 1})}>
             <Text style={{fontWeight: 'bold'}}>{tab.icon}</Text>
