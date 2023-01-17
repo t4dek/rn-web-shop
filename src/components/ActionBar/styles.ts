@@ -12,14 +12,15 @@ export default StyleSheet.create({
   container: {
     position: 'absolute',
     bottom: 35,
-    width: '80%',
-    maxWidth: 350,
+    width: '90%',
+    maxWidth: 450,
     padding: 8,
-    borderRadius: 5,
+    borderRadius: 20,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: 'red',
+    backgroundColor: 'gray',
+    height: 50,
   },
 
   text: {

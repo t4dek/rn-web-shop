@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useEffect} from 'react';
 import {
+  Image,
   ImageBackground,
   Pressable,
   SafeAreaView,
@@ -9,7 +10,7 @@ import {
   View,
 } from 'react-native';
 import {ROUTE_NAMES} from '../../constants/routeNames';
-import {Product} from '../../store/reducers/products';
+import {addProductToCart, Product} from '../../store/reducers/products';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getProductList} from '../../store/asyncActions/products';
 
@@ -41,17 +42,29 @@ const Products = () => {
         return null;
       }
 
+      const addToCart = (item) => () => {
+        dispatch(addProductToCart(item))
+      }
+
       return (
         <Pressable
           onPress={navigateToItemDetails(product)}
           style={styles.productContainer}
           key={product.id}>
-          <ImageBackground
+          <Image
             resizeMode="stretch"
             style={styles.image}
-            source={{uri: product.image}}>
-            <Text>{product.title}</Text>
-          </ImageBackground>
+            source={{uri: product.image}}
+          />
+          <Text style={styles.title}>{product.title}</Text>
+          <Pressable
+            onPress={addToCart(product)}
+            style={({pressed}) => ({
+              ...styles.cartButton,
+              opacity: pressed ? 0.5 : 1,
+            })}>
+            <Text style={styles.cartButtonText}>Add to cart</Text>
+          </Pressable>
         </Pressable>
       );
     },

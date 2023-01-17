@@ -2,10 +2,12 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export type UiReducer = {
   isGlobalLoading: boolean;
+  isCartOpen: boolean;
 };
 
 const initialState: UiReducer = {
   isGlobalLoading: false,
+  isCartOpen: false,
 };
 
 export const uiSlice = createSlice({
@@ -15,9 +17,12 @@ export const uiSlice = createSlice({
     toggleGlobalLoader: (state, action: PayloadAction<boolean>) => {
       state.isGlobalLoading = action.payload;
     },
+    toggleCart: (state, action: PayloadAction<boolean>) => {
+      state.isCartOpen = action.payload;
+    },
   },
 });
 
-export const {toggleGlobalLoader} = uiSlice.actions;
+export const {toggleGlobalLoader, toggleCart} = uiSlice.actions;
 
 export default uiSlice.reducer;
