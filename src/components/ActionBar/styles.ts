@@ -19,7 +19,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: 'gray',
+    backgroundColor: '#1E90FF',
     height: 50,
   },
 
