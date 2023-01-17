@@ -7,11 +7,12 @@ import {addProductToCart, Product} from '../../store/reducers/products';
 
 import styles from './styles';
 
-const ProductDetails = ({route}) => {
+const ProductDetails = ({navigation, route}) => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(state => state.products.list);
 
   const id = route.params?.id;
+  const headerTitle = route.params?.title;
   const product = products[id] || {};
 
   const handleAddToCart = useCallback((item: Product) => {
@@ -20,6 +21,7 @@ const ProductDetails = ({route}) => {
 
   useEffect(() => {
     dispatch(getProduct({id}));
+    navigation.setOptions({headerTitle});
   }, [id, dispatch]);
 
   return (

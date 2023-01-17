@@ -11,6 +11,9 @@ export const MainNavigation = () => {
       <MainNavigator.Screen
         name={ROUTE_NAMES.PRODUCTS}
         component={ProductsScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <MainNavigator.Screen
         name={ROUTE_NAMES.PRODUCT_DETAILS}

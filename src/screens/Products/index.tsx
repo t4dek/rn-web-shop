@@ -28,7 +28,10 @@ const Products = () => {
   const navigateToItemDetails = useCallback(
     (product: Product) => {
       return () => {
-        navigation.navigate(ROUTE_NAMES.PRODUCT_DETAILS, {id: product.id});
+        navigation.navigate(ROUTE_NAMES.PRODUCT_DETAILS, {
+          id: product.id,
+          title: product.title,
+        });
       };
     },
     [navigation],
@@ -42,9 +45,9 @@ const Products = () => {
         return null;
       }
 
-      const addToCart = (item) => () => {
-        dispatch(addProductToCart(item))
-      }
+      const addToCart = item => () => {
+        dispatch(addProductToCart(item));
+      };
 
       return (
         <Pressable
