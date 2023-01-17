@@ -32,15 +32,17 @@ const ProductDetails = ({navigation, route}) => {
         source={{uri: product.image}}
       />
       <Text style={styles.title}>{product.title}</Text>
-      <Text style={styles.price}>{`$${product.price}`}</Text>
-      <Pressable
-        style={({pressed}) => ({
-          opacity: pressed ? 0.5 : 1,
-          ...styles.cartButton,
-        })}
-        onPress={handleAddToCart(product)}>
-        <Text style={styles.cartButtonText}>Add to cart</Text>
-      </Pressable>
+      <View style={styles.priceContainer}>
+        <Text style={styles.price}>{`$${product.price}`}</Text>
+        <Pressable
+          style={({pressed}) => ({
+            opacity: pressed ? 0.5 : 1,
+            ...styles.cartButton,
+          })}
+          onPress={handleAddToCart(product)}>
+          <Text style={styles.cartButtonText}>Add to cart</Text>
+        </Pressable>
+      </View>
       <Text style={styles.description}>{product.description}</Text>
     </View>
   );

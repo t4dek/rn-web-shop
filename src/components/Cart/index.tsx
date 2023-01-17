@@ -1,5 +1,5 @@
 import {BlurView} from '@react-native-community/blur';
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   Image,
   Pressable,
@@ -28,13 +28,14 @@ const Cart: React.FC<CartProps> = ({
   addItem,
   removeItem,
 }: CartProps) => {
-  const normalizedProducts: Record<number, Product[]> = products.reduce(
-    (acc, item) => {
-      acc[item.id] = acc[item.id] ? [...acc[item.id], item] : [item];
+  const normalizedProducts = useMemo(
+    () =>
+      products.reduce((acc, item) => {
+        acc[item.id] = acc[item.id] ? [...acc[item.id], item] : [item];
 
-      return acc;
-    },
-    {},
+        return acc;
+      }, {}),
+    [products],
   );
 
   const renderItem = (itemId: number) => {

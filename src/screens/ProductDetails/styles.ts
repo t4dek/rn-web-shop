@@ -18,8 +18,8 @@ export default StyleSheet.create({
   price: {
     fontStyle: 'italic',
     fontWeight: 'bold',
-    fontSize: 18,
-    paddingVertical: 20,
+    fontSize: 24,
+    paddingVertical: 5,
     textAlign: 'center',
   },
   description: {
@@ -39,5 +39,11 @@ export default StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     alignSelf: 'center',
+  },
+  priceContainer:{
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginVertical: 10,
   },
 });
